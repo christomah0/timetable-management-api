@@ -1,0 +1,56 @@
+### GET request with a header for establishment
+GET http://localhost:8080/api/v1/establishment/
+Accept: application/json
+
+### GET request with a header for establishment
+GET http://localhost:8080/api/v1/establishment/find?id=0e219081-a898-4b86-a193-96f9e6ceb938
+Accept: application/json
+
+### Send POST request with json body for adding establishment
+POST http://localhost:8080/api/v1/establishment/
+Content-Type: application/json
+
+{
+  "name": "EMIT",
+  "address": "Fianarantsoa"
+}
+
+### Send PUT request with json body for updating establishment
+PUT http://localhost:8080/api/v1/establishment/update?id=0e219081-a898-4b86-a193-96f9e6ceb938
+Content-Type: application/json
+
+{
+  "name": "ENI",
+  "address": "Toliara"
+}
+
+### Send DELETE request for deleting establishment
+DELETE http://localhost:8080/api/v1/establishment/delete?id=5ff41244-e674-47e1-a623-0f1150718eae
+
+### GET request with a header for establishment
+GET http://localhost:8080/api/v1/level/
+Accept: application/json
+
+### GET request with a header for establishment
+GET http://localhost:8080/api/v1/level/find?id=ddf6095a-fd30-4082-9f0d-1f8f9c4c6e3f
+Accept: application/json
+
+### Send POST request with json body for adding establishment
+POST http://localhost:8080/api/v1/level/
+Content-Type: application/json
+
+{
+  "categoryName": "L1"
+}
+
+### Send PUT request with json body for updating establishment
+PUT http://localhost:8080/api/v1/level/update?id=51618e1a-6380-44db-9a84-f6bb2775736c
+Content-Type: application/json
+
+{
+  "categoryName": "L2"
+}
+
+### Send DELETE request for deleting establishment
+DELETE http://localhost:8080/api/v1/level/delete?id=51618e1a-6380-44db-9a84-f6bb2775736c
+
