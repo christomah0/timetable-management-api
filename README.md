@@ -3,7 +3,7 @@
 
 ## Features:
 - Effortless Establishment Management: Create, retrieve, update, and delete establishment information. (https://www.postman.com/product/rest-client/)
-- Level Management: Manage different academic levels within your establishment. (https://m.youtube.com/watch?v=DEt4bfSCuIs)
+- Level Management: Manage different academic levels within your establishment.
 - Additional Functionalities (to be implemented):
     - Manage classes, teachers, and subjects.
     - Build and schedule timetables.
