@@ -52,4 +52,4 @@ The API uses JSON for data exchange and follows the standard HTTP methods for CR
 - Contributing
 We welcome contributions to this project! Feel free to fork the repository and submit pull requests.
 ## License
-This project is licensed under the Apache License 2.0. See the LICENSE file for details.
+This project is licensed under the MIT License. See the LICENSE file for details.
