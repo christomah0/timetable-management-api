@@ -1,14 +1,12 @@
 package com.ihm.timetablemanagement.models;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.UUID;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "week")
@@ -18,6 +16,19 @@ public class Week {
     @Column(name = "week_id")
     private UUID weekId;
 
-    @Column(name = "day_name", nullable = false, length = 11)
-    private String dayName;
+    @Column(name = "weekday", nullable = false, length = 11, unique = true)
+    private String weekday;
+
+    public Week(UUID weekId) {
+        this.weekId = weekId;
+    }
+
+    public Week(String weekday) {
+        this.weekday = weekday;
+    }
+
+    public Week(UUID weekId, String weekday) {
+        this.weekId = weekId;
+        this.weekday = weekday;
+    }
 }

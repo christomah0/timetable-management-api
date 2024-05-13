@@ -18,7 +18,7 @@ public class Establishment {
     @Column(name = "establishment_id")
     private UUID establishmentId;
 
-    @Column(name = "name", nullable = false, length = 127)
+    @Column(name = "name", nullable = false, length = 127, unique = true)
     private String name;
 
     @Column(name = "address", nullable = false, length = 254)

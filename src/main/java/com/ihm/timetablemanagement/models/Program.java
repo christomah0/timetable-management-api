@@ -1,11 +1,13 @@
 package com.ihm.timetablemanagement.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.UUID;
 
 @Data
@@ -22,20 +24,27 @@ public class Program {
     @Column(name = "module_name", nullable = false, length = 127)
     private String moduleName;
 
-    @Column(name = "start_datetime", nullable = false)
-    private LocalDateTime startDateTime;
+    @Column(name = "date", nullable = false)
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private LocalDate date;
 
-    @Column(name = "end_datetime", nullable = false)
-    private LocalDateTime endDateTime;
+    @Column(name = "start_time", nullable = false)
+    @JsonFormat(pattern = "HH:mm")
+    private LocalTime startTime;
+
+    @Column(name = "end_time", nullable = false)
+    @JsonFormat(pattern = "HH:mm")
+    private LocalTime endTime;
 
     @ManyToOne
-    @JoinColumn(name = "level_id_fk", nullable = false)
-    private Level level;
+    @JoinColumn(name = "course_id_fk", nullable = false)
+    private Course course;
 
     @ManyToOne
     @JoinColumn(name = "week_id_fk", nullable = false)
     private Week week;
 
-    @Column(name = "day_period")
-    private String dayPeriod;
+    @ManyToOne
+    @JoinColumn(name = "period_id_fk")
+    private Period period;
 }

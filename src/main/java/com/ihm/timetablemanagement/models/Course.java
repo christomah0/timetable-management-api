@@ -11,15 +11,15 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "mention")
-public class Mention {
+@Table(name = "course")
+public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "mention_id")
-    private UUID mentionId;
+    @Column(name = "course_id")
+    private UUID courseId;
 
-    @Column(name = "name", nullable = false, length = 254)
-    private String name;
+    @Column(name = "course_name", nullable = false, length = 254)
+    private String courseName;
 
     @ManyToOne
     @JoinColumn(name = "establishment_id_fk", nullable = false)
@@ -28,4 +28,5 @@ public class Mention {
     @ManyToOne
     @JoinColumn(name = "level_id_fk", nullable = false)
     private Level level;
+
 }

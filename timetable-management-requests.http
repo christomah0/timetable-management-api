@@ -1,0 +1,232 @@
+### GET request with a header for establishment
+GET http://localhost:8080/api/v1/establishment/
+Accept: application/json
+
+### GET request with a header for establishment
+GET http://localhost:8080/api/v1/establishment/find?id=0e219081-a898-4b86-a193-96f9e6ceb938
+Accept: application/json
+
+### Send POST request with json body for adding establishment
+POST http://localhost:8080/api/v1/establishment/
+Content-Type: application/json
+
+{
+  "name": "ENI",
+  "address": "Fianarantsoa"
+}
+
+### Send PUT request with json body for updating establishment
+PUT http://localhost:8080/api/v1/establishment/update?id=0e219081-a898-4b86-a193-96f9e6ceb938
+Content-Type: application/json
+
+{
+  "name": "ENI",
+  "address": "Toliara"
+}
+
+### Send DELETE request for deleting establishment
+DELETE http://localhost:8080/api/v1/establishment/delete?id=5ff41244-e674-47e1-a623-0f1150718eae
+
+### GET request with a header for establishment
+GET http://localhost:8080/api/v1/level/
+Accept: application/json
+
+### GET request with a header for establishment
+GET http://localhost:8080/api/v1/level/find?id=ddf6095a-fd30-4082-9f0d-1f8f9c4c6e3f
+Accept: application/json
+
+### Send POST request with json body for adding establishment
+POST http://localhost:8080/api/v1/level/
+Content-Type: application/json
+
+{
+  "categoryName": "M2"
+}
+
+### Send PUT request with json body for updating establishment
+PUT http://localhost:8080/api/v1/level/update?id=51618e1a-6380-44db-9a84-f6bb2775736c
+Content-Type: application/json
+
+{
+  "categoryName": "L2"
+}
+
+### Send DELETE request for deleting level
+DELETE http://localhost:8080/api/v1/level/delete?id=51618e1a-6380-44db-9a84-f6bb2775736c
+
+### GET request with a header for weekday
+GET http://localhost:8080/api/v1/week/
+Accept: application/json
+
+### GET request with a header for weekday
+GET http://localhost:8080/api/v1/week/find?id=8d6dc06d-be16-4272-bb48-1474d140a791
+Accept: application/json
+
+### Send POST request with json body for adding weekday
+POST http://localhost:8080/api/v1/week/
+Content-Type: application/json
+
+{
+  "weekday": "Dimanche"
+}
+
+### Send PUT request with json body for updating weekday
+PUT http://localhost:8080/api/v1/week/update?id=8d6dc06d-be16-4272-bb48-1474d140a791
+Content-Type: application/json
+
+{
+  "dayName": "Tuesday"
+}
+
+### Send DELETE request for deleting weekday
+DELETE http://localhost:8080/api/v1/week/delete?id=8d6dc06d-be16-4272-bb48-1474d140a791
+
+### GET request with a header for period
+GET http://localhost:8080/api/v1/period/
+Accept: application/json
+
+### Send POST request with json body for adding period
+POST http://localhost:8080/api/v1/period/
+Content-Type: application/json
+
+{
+  "dayPeriod": "PM"
+}
+
+### Send PUT request with json body for updating period
+PUT http://localhost:8080/api/v1/period/update?id=0533793e-8ade-400b-a4a0-66bcafc982bf
+Content-Type: application/json
+
+{
+  "dayPeriod": "PM"
+}
+
+### Send DELETE request for deleting period
+DELETE http://localhost:8080/api/v1/period/delete?id=0533793e-8ade-400b-a4a0-66bcafc982bf
+
+### GET request with a header for course
+GET http://localhost:8080/api/v1/course/
+Accept: application/json
+
+### GET request with a header for course filtered
+GET http://localhost:8080/api/v1/course/filtered?establishment=ENI
+Accept: application/json
+
+### Send POST request with json body for adding course
+POST http://localhost:8080/api/v1/course/
+Content-Type: application/json
+
+{
+  "courseName": "IG",
+  "establishment": {
+    "establishmentId": "b761f853-09de-487c-9e50-a4877cc6e557"
+  },
+  "level": {
+    "levelId": "c9d6e8a9-0fca-4712-b613-8ad1beea04fe"
+  }
+}
+
+### Send PUT request with json body for updating course
+PUT http://localhost:8080/api/v1/course/update?id=4eb25bb0-7bc0-416e-ab4d-083c79700185
+Content-Type: application/json
+
+{
+  "courseName": "IG",
+  "establishment": {
+    "establishmentId": "b761f853-09de-487c-9e50-a4877cc6e557"
+  },
+  "level": {
+    "levelId": "d19adedf-b15b-433d-a3b9-ad21bfc77f13"
+  }
+}
+
+### Send DELETE request for deleting course
+DELETE http://localhost:8080/api/v1/course/delete?id=4eb25bb0-7bc0-416e-ab4d-083c79700185
+
+### GET request with a header for program
+GET http://localhost:8080/api/v1/program/
+Accept: application/json
+
+### GET request with a header for program filtered
+GET http://localhost:8080/api/v1/program/filtered?course-id=66b83549-a402-4518-9733-ae5c8ed0681d&start-date=2024-05-09&end-date=2024-05-10
+Accept: application/json
+
+### Send POST request with json body for adding program
+POST http://localhost:8080/api/v1/program/
+Content-Type: application/json
+
+{
+  "moduleName": "Technique de communication",
+  "date": "2024-04-29",
+  "startTime": "08:00",
+  "endTime": "10:30",
+  "course": {
+    "courseId": "410f9d31-81d1-4b59-93f6-1d0f40667a8a"
+  },
+  "week": {
+    "weekId": "51102465-3a86-49e3-8d72-b41da351313f"
+  },
+  "period": {
+    "periodId": "89308549-eedb-40e3-9b6c-5d71d79835a4"
+  }
+}
+
+### Send POST request with json body for adding program list
+POST http://localhost:8080/api/v1/program/many/
+Content-Type: application/json
+
+[
+  {
+    "moduleName": "React.js",
+    "date": "2024-05-04",
+    "startTime": "08:00",
+    "endTime": "10:30",
+    "course": {
+      "courseId": "b761f853-09de-487c-9e50-a4877cc6e557"
+    },
+    "week": {
+      "weekId": "d19adedf-b15b-433d-a3b9-ad21bfc77f13"
+    },
+    "period": {
+      "periodId": "89308549-eedb-40e3-9b6c-5d71d79835a4"
+    }
+  },
+  {
+    "moduleName": "React.js",
+    "date": "2024-04-22",
+    "startTime": "08:00",
+    "endTime": "10:30",
+    "course": {
+      "courseId": "b761f853-09de-487c-9e50-a4877cc6e557"
+    },
+    "week": {
+      "weekId": "d19adedf-b15b-433d-a3b9-ad21bfc77f13"
+    },
+    "period": {
+      "periodId": "d19adedf-b15b-433d-a3b9-ad21bfc77f13"
+    }
+  }
+]
+
+### Send PUT request with json body for updating program
+PUT http://localhost:8080/api/v1/program/update?id=4eb25bb0-7bc0-416e-ab4d-083c79700185
+Content-Type: application/json
+
+{
+  "moduleName": "Technique de communication",
+  "date": "2024-04-29",
+  "startTime": "08:00",
+  "endTime": "10:30",
+  "course": {
+    "courseId": "b761f853-09de-487c-9e50-a4877cc6e557"
+  },
+  "week": {
+    "weekId": "51102465-3a86-49e3-8d72-b41da351313f"
+  },
+  "period": {
+    "periodId": "89308549-eedb-40e3-9b6c-5d71d79835a4"
+  }
+}
+
+### Send DELETE request for deleting program
+DELETE http://localhost:8080/api/v1/program/delete?id=4eb25bb0-7bc0-416e-ab4d-083c79700185

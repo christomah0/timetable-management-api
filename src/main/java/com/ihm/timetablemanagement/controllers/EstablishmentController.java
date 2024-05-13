@@ -2,7 +2,7 @@ package com.ihm.timetablemanagement.controllers;
 
 import com.ihm.timetablemanagement.models.Establishment;
 import com.ihm.timetablemanagement.services.implementations.EstablishmentBusinessService;
-import com.ihm.timetablemanagement.utils.ServerMessage;
+import com.ihm.timetablemanagement.utils.ServerResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,60 +22,61 @@ public class EstablishmentController {
     }
 
     @GetMapping("/")
-    public ResponseEntity<List<Establishment>> readAllInstances() {
+    public ResponseEntity<List<Establishment>> readAll() {
         return ResponseEntity.ok(establishmentBusinessService.findAll());
     }
 
     @GetMapping("/find")
-    public ResponseEntity<Establishment> readSingleInstance(@RequestParam(value = "id", defaultValue = "") UUID uuid) {
+    public ResponseEntity<Establishment> readOne(@RequestParam(value = "id", defaultValue = "") UUID uuid) {
         return ResponseEntity.ok(establishmentBusinessService.findById(uuid));
     }
 
     @PostMapping("/")
-    public ResponseEntity<ServerMessage> createSingleInstance(
+    public ResponseEntity<ServerResponses> createOne(
             @RequestBody Establishment establishment
     ) {
         // Prepare to send back a message to the client
-        ServerMessage msg = new ServerMessage();
-        msg.setMessage("message", "Establishment added successfully.");
+        ServerResponses msg = new ServerResponses();
+        msg.setResponse("message", "Establishment added successfully.");
 
         // Save new establishment
         establishmentBusinessService.save(establishment);
+        msg.setResponse("id", String.valueOf(establishment.getEstablishmentId()));
 
         return ResponseEntity.ok(msg);
     }
 
     @PutMapping("/update")
-    public ResponseEntity<ServerMessage> updateSingleInstance(
+    public ResponseEntity<ServerResponses> updateOne(
             @RequestParam(value = "id", defaultValue = "")UUID uuid,
             @RequestBody Establishment establishment
     ) {
-        ServerMessage msg = new ServerMessage();
+        ServerResponses msg = new ServerResponses();
 
         // Evaluates the existence of instance
         if (!establishmentBusinessService.exists(uuid)) {
-            msg.setMessage("message", "No establishment found.");
+            msg.setResponse("message", "No establishment found.");
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(msg);
         }
 
-        msg.setMessage("message", "Establishment updated successfully.");
+        msg.setResponse("message", "Establishment updated successfully.");
         establishment.setEstablishmentId(uuid);
         establishmentBusinessService.save(establishment);
         return ResponseEntity.ok(msg);
     }
 
     @DeleteMapping("/delete")
-    public ResponseEntity<ServerMessage> deleteSingleInstance(
+    public ResponseEntity<ServerResponses> deleteOne(
             @RequestParam(value = "id", defaultValue = "")UUID uuid
     ) {
-        ServerMessage msg = new ServerMessage();
+        ServerResponses msg = new ServerResponses();
 
         if (!establishmentBusinessService.exists(uuid)) {
-            msg.setMessage("message", "No establishment found.");
+            msg.setResponse("message", "No establishment found.");
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(msg);
         }
 
-        msg.setMessage("message", "Establishment deleted successfully.");
+        msg.setResponse("message", "Establishment deleted successfully.");
         establishmentBusinessService.deleteById(uuid);
         return ResponseEntity.ok(msg);
     }

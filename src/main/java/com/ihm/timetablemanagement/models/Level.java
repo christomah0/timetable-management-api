@@ -18,6 +18,6 @@ public class Level {
     @Column(name = "level_id")
     private UUID levelId;
 
-    @Column(name = "category_name", nullable = false, length = 3)
-    private String categoryName;
+    @Column(name = "rankLevel", nullable = false, length = 3, unique = true)
+    private String rankLevel;
 }
